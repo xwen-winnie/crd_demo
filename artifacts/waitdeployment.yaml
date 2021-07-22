@@ -1,0 +1,21 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: waitdeployments.qbox.io
+spec:
+  group: qbox.io
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
+  scope: Namespaced
+  names:
+    plural: waitdeployments
+    singular: waitdeployment
+    kind: Waitdeployment
+    shortNames:
+      - wd

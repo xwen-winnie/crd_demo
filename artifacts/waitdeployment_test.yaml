@@ -1,0 +1,24 @@
+apiVersion: qbox.io/v1alpha1
+kind: Waitdeployment
+waitProbe:
+  address: 192.168.1.5:30080
+  timeout: 5000000000
+metadata:
+  name: wdtest
+  labels:
+    app: wdtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wdtest
+  template:
+    metadata:
+      labels:
+        app: wdtest
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
