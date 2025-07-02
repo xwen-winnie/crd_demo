@@ -8,7 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add Issue to Project
-        uses: actions/crd@v0.4.0
+        uses: actions/github-script@v6
         with:
-          project-url: "https://github.com/users/xwen-winnie/projects/1"  # 替换为目标 Project URL
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.graphql(
+              `mutation {
+                addProjectV2ItemById(input: {
+                  projectId: "PVT_kwDOABCD1234",
+                  contentId: "${{ github.event.issue.node_id }}"
+                }) { item { id } }
+              }`
+            )
