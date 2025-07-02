@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add Issue to Project
-        uses: actions/add-to-project@v0.4.0
+        uses: actions/crd@v0.4.0
         with:
           project-url: "https://github.com/users/xwen-winnie/projects/1"  # 替换为目标 Project URL
           github-token: ${{ secrets.GITHUB_TOKEN }}
