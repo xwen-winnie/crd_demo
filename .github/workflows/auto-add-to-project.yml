@@ -1,0 +1,14 @@
+# .github/workflows/auto-add-to-project.yml
+name: Auto Add Issues to Project
+on:
+  issues:
+    types: [opened]  # 监听新 Issue 创建事件
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Issue to Project
+        uses: actions/crd@v0.4.0
+        with:
+          project-url: "https://github.com/users/xwen-winnie/projects/1"  # 替换为目标 Project URL
+          github-token: ${{ secrets.GITHUB_TOKEN }}
