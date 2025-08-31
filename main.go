@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"os"
 
 	"k8s.io/klog"
@@ -27,6 +28,7 @@ func main() {
 
 	cli, err := kube.NewClient(context.Background(), f)
 	if err != nil {
+		fmt.Println("sgvui")
 		klog.Fatal(err.Error())
 		os.Exit(-1)
 	}
